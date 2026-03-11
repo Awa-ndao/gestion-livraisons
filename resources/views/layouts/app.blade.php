@@ -36,6 +36,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('livreurs.index') }}"><i class="bi bi-person-badge"></i> Livreurs</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('colis.index') }}"><i class="bi bi-box"></i> Colis</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('livraisons.index') }}"><i class="bi bi-truck"></i> Livraisons</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('paiements.index') }}"><i class="bi bi-cash-coin"></i> Paiements</a></li>
             </ul>
         </div>
     </div>

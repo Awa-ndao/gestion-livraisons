@@ -43,5 +43,14 @@
             </div>
         </div>
     </div>
+    <div class="col-md-3">
+    <div class="card text-center h-100">
+        <div class="card-body">
+            <i class="bi bi-cash-coin" style="font-size: 3rem; color: #8B2E2E;"></i>
+            <h5 class="mt-2">Paiements</h5>
+            <a href="{{ route('paiements.index') }}" class="btn btn-primary mt-2">Gérer</a>
+        </div>
+    </div>
+</div>
 </div>
 @endsection

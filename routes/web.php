@@ -14,3 +14,7 @@ Route::resource('clients', ClientController::class);
 Route::resource('livreurs', LivreurController::class);
 Route::resource('colis', ColisController::class);
 Route::resource('livraisons', LivraisonController::class);
+
+
+use App\Http\Controllers\PaiementController;
+Route::resource('paiements', PaiementController::class);

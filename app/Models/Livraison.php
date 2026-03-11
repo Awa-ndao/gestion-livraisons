@@ -17,4 +17,10 @@ class Livraison extends Model
     {
         return $this->belongsTo(Livreur::class);
     }
+
+    public function paiement()
+{
+    return $this->hasOne(Paiement::class);
+}
+
 }
