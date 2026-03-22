@@ -8,30 +8,31 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body { background-color: #F5F0E8; font-family: 'Segoe UI', sans-serif; }
-        .navbar { background-color: #8B2E2E !important; }
-        .navbar-brand, .nav-link { color: #F5F0E8 !important; }
-        .nav-link:hover { color: #C4973A !important; }
+        .navbar { background-color: #C4973A !important; min-height: 90px; border-bottom: 3px solid #8B2E2E; }
+        .nav-link { color: white !important; font-weight: 500; padding: 12px 16px !important; }
+        .nav-link:hover { background-color: #8B2E2E !important; color: white !important; }
         .btn-primary { background-color: #8B2E2E; border-color: #8B2E2E; }
         .btn-primary:hover { background-color: #6e2424; border-color: #6e2424; }
         .btn-warning { background-color: #C4973A; border-color: #C4973A; color: white; }
         .btn-warning:hover { background-color: #a67e30; color: white; }
-        .card { border: 1px solid #C4973A; border-radius: 10px; }
+        .card { border: 1px solid #C4973A; border-radius: 10px; background-color: white; }
         .card-header { background-color: #8B2E2E; color: #F5F0E8; border-radius: 10px 10px 0 0 !important; }
-        .table thead th { background-color: #C4973A; color: white; }
-        .navbar { min-height: 90px; }
+        .table thead th { background-color: #8B2E2E; color: white; }
     </style>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg">
     <div class="container">
- <a class="navbar-brand fw-bold" href="/">
-    <img src="{{ asset('logo_mon_projet.jpeg') }}" alt="Maison D'Awa" height="70" style="border-radius: 50%; border: 3px solid #C4973A; padding: 3px; background-color: white; margin-right: 8px;">Maison D'Awa
-</a>
+        <a href="/">
+            <img src="{{ asset('logo.svg') }}" alt="Maison D'Awa" height="80" style="background-color: white; border-radius: 50%; padding: 3px;">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navMenu">
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="/"><i class="bi bi-house"></i> Accueil</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('clients.index') }}"><i class="bi bi-people"></i> Clients</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('livreurs.index') }}"><i class="bi bi-person-badge"></i> Livreurs</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('colis.index') }}"><i class="bi bi-box"></i> Colis</a></li>

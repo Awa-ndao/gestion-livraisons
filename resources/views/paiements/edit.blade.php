@@ -11,7 +11,7 @@
             <div class="mb-3">
                 <label class="form-label fw-bold">Livraison</label>
                 <select name="livraison_id" class="form-select @error('livraison_id') is-invalid @enderror">
-                    <option value="">-- Choisir une livraison --</option>
+                    <option value="">Choisir une livraison </option>
                     @foreach($livraisons as $livraison)
                         <option value="{{ $livraison->id }}" {{ old('livraison_id', $paiement->livraison_id) == $livraison->id ? 'selected' : '' }}>
                             Livraison #{{ $livraison->id }} — {{ $livraison->colis->description ?? '' }}
