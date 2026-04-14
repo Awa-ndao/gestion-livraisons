@@ -38,14 +38,17 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('colis.index') }}"><i class="bi bi-box"></i> Colis</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('livraisons.index') }}"><i class="bi bi-truck"></i> Livraisons</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('paiements.index') }}"><i class="bi bi-cash-coin"></i> Paiements</a></li>
-            <li class="nav-item">
-    <form action="{{ route('logout') }}" method="POST" class="d-inline">
-        @csrf
-        <button type="submit" class="nav-link btn btn-link" style="color: white !important;">
-            <i class="bi bi-box-arrow-right"></i> Déconnexion
-        </button>
-    </form>
-</li>
+                @if(auth()->guard('admin')->user()->role === 'admin')
+                <li class="nav-item"><a class="nav-link" href="{{ route('utilisateurs.index') }}"><i class="bi bi-people-fill"></i> Utilisateurs</a></li>
+                @endif
+                <li class="nav-item">
+                    <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                        @csrf
+                        <button type="submit" class="nav-link btn btn-link" style="color: white !important;">
+                            <i class="bi bi-box-arrow-right"></i> Déconnexion
+                        </button>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
@@ -55,6 +58,12 @@
     @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show">
             <i class="bi bi-check-circle"></i> {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    @endif
+    @if(session('error'))
+        <div class="alert alert-danger alert-dismissible fade show">
+            <i class="bi bi-exclamation-circle"></i> {{ session('error') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     @endif

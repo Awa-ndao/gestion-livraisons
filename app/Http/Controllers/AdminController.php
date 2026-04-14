@@ -36,4 +36,46 @@ class AdminController extends Controller
         Auth::guard('admin')->logout();
         return redirect('/login');
     }
+
+    public function utilisateurs()
+    {
+        $utilisateurs = Admin::orderBy('created_at', 'desc')->get();
+        return view('utilisateurs.index', compact('utilisateurs'));
+    }
+
+    public function createUtilisateur()
+    {
+        return view('utilisateurs.create');
+    }
+
+    public function storeUtilisateur(Request $request)
+    {
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'email' => 'required|email|unique:admins,email',
+            'password' => 'required|min:6',
+            'role' => 'required|in:admin,employe',
+        ]);
+
+        Admin::create([
+            'nom' => $request->nom,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => $request->role,
+        ]);
+
+        return redirect()->route('utilisateurs.index')->with('success', 'Utilisateur créé avec succès');
+    }
+
+    public function destroyUtilisateur($id)
+    {
+        $admin = Admin::findOrFail($id);
+
+        if ($admin->id === Auth::guard('admin')->user()->id) {
+            return redirect()->route('utilisateurs.index')->with('error', 'Vous ne pouvez pas supprimer votre propre compte !');
+        }
+
+        $admin->delete();
+        return redirect()->route('utilisateurs.index')->with('success', 'Utilisateur supprimé avec succès');
+    }
 }
