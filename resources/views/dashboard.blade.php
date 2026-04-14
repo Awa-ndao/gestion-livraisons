@@ -49,6 +49,7 @@
 
 <!-- Ligne 2 : paiements + statuts colis -->
 <div class="row g-3">
+    @if(auth()->guard('admin')->user()->role === 'admin')
     <div class="col-md-4">
         <div class="card text-center" style="border-left: 5px solid #198754;">
             <div class="card-body py-3">
@@ -58,6 +59,7 @@
             </div>
         </div>
     </div>
+    @endif
     <div class="col-md-4">
         <div class="card text-center" style="border-left: 5px solid #C4973A;">
             <div class="card-body py-3">
