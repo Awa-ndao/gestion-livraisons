@@ -35,6 +35,12 @@ class LivraisonController extends Controller
         return redirect()->route('livraisons.index')->with('success', 'Livraison ajoutée avec succès');
     }
 
+    public function show(Livraison $livraison)
+    {
+        $livraison->load('colis.client', 'livreur', 'paiement');
+        return view('livraisons.show', compact('livraison'));
+    }
+
     public function edit(Livraison $livraison)
     {
         $colis = Colis::all();

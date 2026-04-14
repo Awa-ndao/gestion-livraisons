@@ -29,6 +29,9 @@
                     <td>{{ $client->telephone }}</td>
                     <td>{{ $client->adresse }}</td>
                     <td>
+                        <a href="{{ route('clients.show', $client) }}" class="btn btn-primary btn-sm">
+                            <i class="bi bi-eye"></i>
+                        </a>
                         <a href="{{ route('clients.edit', $client) }}" class="btn btn-warning btn-sm">
                             <i class="bi bi-pencil"></i>
                         </a>

@@ -39,6 +39,9 @@
                         @endif
                     </td>
                     <td>
+                        <a href="{{ route('livraisons.show', $livraison) }}" class="btn btn-primary btn-sm">
+                            <i class="bi bi-eye"></i>
+                        </a>
                         <a href="{{ route('livraisons.edit', $livraison) }}" class="btn btn-warning btn-sm">
                             <i class="bi bi-pencil"></i>
                         </a>
