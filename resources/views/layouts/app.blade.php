@@ -38,6 +38,14 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('colis.index') }}"><i class="bi bi-box"></i> Colis</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('livraisons.index') }}"><i class="bi bi-truck"></i> Livraisons</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('paiements.index') }}"><i class="bi bi-cash-coin"></i> Paiements</a></li>
+            <li class="nav-item">
+    <form action="{{ route('logout') }}" method="POST" class="d-inline">
+        @csrf
+        <button type="submit" class="nav-link btn btn-link" style="color: white !important;">
+            <i class="bi bi-box-arrow-right"></i> Déconnexion
+        </button>
+    </form>
+</li>
             </ul>
         </div>
     </div>
