@@ -33,6 +33,9 @@
                         @endif
                     </td>
                     <td>
+                        <a href="{{ route('utilisateurs.edit', $utilisateur->id) }}" class="btn btn-warning btn-sm">
+                            <i class="bi bi-pencil"></i>
+                        </a>
                         @if($utilisateur->id !== auth()->guard('admin')->user()->id)
                         <form action="{{ route('utilisateurs.destroy', $utilisateur->id) }}" method="POST" class="d-inline">
                             @csrf @method('DELETE')

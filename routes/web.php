@@ -41,11 +41,12 @@ Route::middleware(['employe'])->group(function () {
     Route::resource('livraisons', LivraisonController::class);
     Route::resource('paiements', PaiementController::class);
 });
-
 // Routes admin uniquement
 Route::middleware(['admin'])->group(function () {
     Route::get('/utilisateurs', [AdminController::class, 'utilisateurs'])->name('utilisateurs.index');
     Route::get('/utilisateurs/create', [AdminController::class, 'createUtilisateur'])->name('utilisateurs.create');
     Route::post('/utilisateurs', [AdminController::class, 'storeUtilisateur'])->name('utilisateurs.store');
+    Route::get('/utilisateurs/{id}/edit', [AdminController::class, 'editUtilisateur'])->name('utilisateurs.edit');
+    Route::put('/utilisateurs/{id}', [AdminController::class, 'updateUtilisateur'])->name('utilisateurs.update');
     Route::delete('/utilisateurs/{id}', [AdminController::class, 'destroyUtilisateur'])->name('utilisateurs.destroy');
 });

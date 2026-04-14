@@ -67,6 +67,36 @@ class AdminController extends Controller
         return redirect()->route('utilisateurs.index')->with('success', 'Utilisateur créé avec succès');
     }
 
+    public function editUtilisateur($id)
+    {
+        $utilisateur = Admin::findOrFail($id);
+        return view('utilisateurs.edit', compact('utilisateur'));
+    }
+
+    public function updateUtilisateur(Request $request, $id)
+    {
+        $utilisateur = Admin::findOrFail($id);
+
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'email' => 'required|email|unique:admins,email,' . $id,
+            'role' => 'required|in:admin,employe',
+        ]);
+
+        $data = [
+            'nom' => $request->nom,
+            'email' => $request->email,
+            'role' => $request->role,
+        ];
+
+        if ($request->filled('password')) {
+            $data['password'] = Hash::make($request->password);
+        }
+
+        $utilisateur->update($data);
+        return redirect()->route('utilisateurs.index')->with('success', 'Utilisateur modifié avec succès');
+    }
+
     public function destroyUtilisateur($id)
     {
         $admin = Admin::findOrFail($id);
