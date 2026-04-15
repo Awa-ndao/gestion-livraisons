@@ -40,6 +40,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('paiements.index') }}"><i class="bi bi-cash-coin"></i> Paiements</a></li>
                 @if(auth()->guard('admin')->user()->role === 'admin')
                 <li class="nav-item"><a class="nav-link" href="{{ route('utilisateurs.index') }}"><i class="bi bi-people-fill"></i> Utilisateurs</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('clotures.index') }}"><i class="bi bi-calendar-check"></i> Clôtures</a></li>
                 @endif
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="POST" class="d-inline">

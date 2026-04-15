@@ -49,4 +49,6 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/utilisateurs/{id}/edit', [AdminController::class, 'editUtilisateur'])->name('utilisateurs.edit');
     Route::put('/utilisateurs/{id}', [AdminController::class, 'updateUtilisateur'])->name('utilisateurs.update');
     Route::delete('/utilisateurs/{id}', [AdminController::class, 'destroyUtilisateur'])->name('utilisateurs.destroy');
+    Route::get('/clotures', [App\Http\Controllers\ClotureController::class, 'index'])->name('clotures.index');
+    Route::post('/clotures', [App\Http\Controllers\ClotureController::class, 'store'])->name('clotures.store');
 });
