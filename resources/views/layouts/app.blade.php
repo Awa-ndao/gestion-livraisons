@@ -41,6 +41,8 @@
                 @if(auth()->guard('admin')->user()->role === 'admin')
                 <li class="nav-item"><a class="nav-link" href="{{ route('utilisateurs.index') }}"><i class="bi bi-people-fill"></i> Utilisateurs</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('clotures.index') }}"><i class="bi bi-calendar-check"></i> Clôtures</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('depenses.index') }}"><i class="bi bi-wallet2"></i> Dépenses</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('bilans.index') }}"><i class="bi bi-bar-chart"></i> Bilans</a></li>
                 @endif
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="POST" class="d-inline">
